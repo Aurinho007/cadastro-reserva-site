@@ -10,7 +10,7 @@ const itensMenu = [
   { href: '#sobre', rotulo: 'A banda' },
   { href: '#repertorio', rotulo: 'Repertório' },
   { href: '#integrantes', rotulo: 'Integrantes' },
-  { href: '#informacoes', rotulo: 'Informações' },
+  { href: '#informacoes', rotulo: 'Como contratar' },
   proximosShows.length > 0 ? { href: '#agenda', rotulo: 'Agenda' } : null,
   { href: '#contato', rotulo: 'Contato' },
 ].filter(Boolean)
@@ -77,7 +77,7 @@ export default function Header() {
               className="header__instagram"
               aria-label="Instagram da Cadastro Reserva"
             >
-              <Icone nome="instagram" tamanho={22} />
+              <Icone nome="instagram" tamanho={20} />
               <span className="header__instagram-texto">{banda.contato.instagram}</span>
             </a>
             <a

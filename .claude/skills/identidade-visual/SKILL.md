@@ -19,20 +19,21 @@ Todas as decisões visuais vivem em `src/styles/variables.css`. Para mudar a car
 | `--cor-fundo-alt` | `#141414` | Seções alternadas (`.secao--alt`) |
 | `--cor-superficie` | `#1c1c1c` | Cards |
 | `--cor-texto` / `--cor-texto-suave` | `#f4f1ec` / `#b4b0aa` | Texto principal / secundário |
-| `--cor-destaque` | `#be73d7` | **Roxo da banda**: botões, palavra destacada dos títulos, rótulos, detalhes |
+| `--cor-destaque` | `#be73d7` | **Roxo da banda**: títulos de seção (inteiros), botões, detalhes |
 | `--cor-destaque-claro` / `-escuro` | `#dcaaec` / `#9a4fb4` | Hover / variações |
 | `--cor-papel` | `#e9e6e0` | Papel rasgado (faixa, etiquetas, molduras) |
 
 Regras:
 - **Texto sobre roxo é sempre preto** (`--cor-sobre-destaque`). Branco sobre `#be73d7` não passa no contraste (3:1).
-- O roxo é tempero: um botão principal por bloco, uma palavra por título. Nunca em blocos grandes de fundo nem em texto corrido.
+- **Títulos de seção são inteiros em roxo**: nada de artigo branco e o resto roxo.
+- Fora os títulos, o roxo é tempero: um botão principal por bloco e detalhes. Nunca em blocos grandes de fundo nem em texto corrido.
 - Nada de gradiente roxo→azul. Brilhos roxos só como `radial-gradient` sutil (opacidade ≤ 0.25).
 
 ## Tipografia
 
 - **Títulos:** `--fonte-titulo` (Anton), sempre em caixa alta — igual aos títulos do release.
 - **Texto:** `--fonte-texto` (Open Sans), 17px, linha 1.65, largura máx. ~62ch (`.texto`).
-- **Rótulos** acima dos títulos (`.secao__rotulo`): 0.8rem, negrito, caixa alta, `letter-spacing: 0.18em`, roxo.
+- **Rótulos** acima dos títulos (`.secao__rotulo`): 0.8rem, negrito, caixa alta, `letter-spacing: 0.18em`, **branco** (`--cor-texto`), em contraste com o título roxo logo abaixo.
 - Títulos responsivos com `clamp()`.
 - O nome da banda em letras recortadas **é a logo** (`src/assets/images/logo.png`). Não tente recriar com fontes.
 

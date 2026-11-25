@@ -9,17 +9,23 @@ export const banda = {
   nome: 'Cadastro Reserva',
   chamada: 'Rock de verdade para o seu evento',
   descricao:
-    'Levamos rock de verdade para apresentações individuais, festas particulares, festivais, bares, pubs e eventos especiais. Seja para animar uma festa, colocar o público para cantar junto ou transformar um evento em uma noite memorável.',
+    'Banda ao vivo com clássicos do rock nacional e internacional, para colocar todo mundo para cantar junto. Levamos som, luz e instrumentos para festas, bares, pubs e festivais.',
 
   // Tipos de evento — aparecem na faixa de papel logo abaixo do topo
-  eventos: ['Festas particulares', 'Festivais', 'Bares', 'Pubs', 'Eventos especiais', 'Apresentações individuais'],
+  eventos: ['Festas particulares', 'Festivais', 'Bares', 'Pubs', 'Eventos especiais'],
 
-  proposta:
-    'A proposta é reunir artistas nacionais e internacionais que marcaram a história do rock. Ao longo da apresentação, a energia do show se transforma gradualmente, acompanhando o ritmo da noite. O repertório começa com músicas mais tranquilas, permitindo que o público se conecte com a banda. Aos poucos, a energia do show e das músicas vai crescendo, criando uma atmosfera cada vez mais envolvente e preparando o público para momentos de maior intensidade e animação.',
+  proposta: [
+    'Tocamos os artistas que marcaram a história do rock, do nacional ao internacional.',
+    'O show acompanha o ritmo da noite. Começa com músicas mais tranquilas, para o público entrar no clima. Depois a energia vai subindo até o auge da festa.',
+  ],
 
   repertorio: {
     texto:
-      'Um repertório completo para todos os momentos: dos clássicos que marcaram gerações aos grandes sucessos que fazem o público cantar junto. Uma seleção vibrante, versátil e cheia de personalidade, pensada para transformar cada show em uma experiência inesquecível.',
+      'Clássicos que marcaram gerações e sucessos que todo mundo sabe cantar, do rock nacional ao internacional.',
+    pedido: {
+      pergunta: 'Quer uma música especial na sua festa?',
+      resposta: 'Dá para pedir na hora de fechar o show.',
+    },
     artistas: [
       'Pitty',
       'Red Hot Chili Peppers',
@@ -45,26 +51,22 @@ export const banda = {
     {
       titulo: 'Duração',
       destaque: '50 min a 3 h',
-      texto:
-        'Adaptada a cada evento: cerca de 50 minutos sem intervalo, ou uma experiência estendida de até 3 horas, com intervalo.',
+      texto: 'Cerca de 50 minutos direto, ou até 3 horas com intervalo. Você escolhe o que combina com o seu evento.',
     },
     {
       titulo: 'Cachê',
       destaque: 'A partir de R$ 800',
-      texto:
-        'Já inclui instrumentos, equipamento de som e toda a estrutura necessária para o show, conforme as necessidades do local.',
+      texto: 'Já inclui instrumentos, som e toda a estrutura que o seu local precisar.',
     },
     {
       titulo: 'Equipamento',
-      destaque: 'Som, luz e instrumentos',
-      texto:
-        'Estrutura completa: instrumentos, sistema de som e iluminação. Levamos o equipamento adequado para o tamanho do lugar.',
+      destaque: 'Estrutura completa',
+      texto: 'Levamos instrumentos, som e iluminação, no tamanho certo para o seu espaço.',
     },
     {
       titulo: 'Contratação',
       destaque: 'Direto no WhatsApp',
-      texto:
-        'Simples e rápida: alinhamos data, horário, formato do evento e condições do local. Dá até para negociar músicas específicas no repertório.',
+      texto: 'Você manda a data, o horário, o tipo de evento e o local. A gente combina o resto com você.',
     },
   ],
 
@@ -74,7 +76,13 @@ export const banda = {
   },
 }
 
-const mensagemWhatsApp = 'Olá, Cadastro Reserva! Vim pelo site e quero levar o show de vocês para o meu evento.'
+// Mensagem que já vem escrita no WhatsApp: a pessoa só completa os dados do evento
+const mensagemWhatsApp = [
+  'Oi, vim pelo site e quero contratar a Cadastro Reserva.',
+  'Data:',
+  'Cidade e local:',
+  'Tipo de evento:',
+].join('\n')
 
 export const links = {
   whatsapp: `https://wa.me/5561981646762?text=${encodeURIComponent(mensagemWhatsApp)}`,

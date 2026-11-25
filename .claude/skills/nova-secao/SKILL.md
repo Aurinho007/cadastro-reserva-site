@@ -18,16 +18,14 @@ O site é uma página única com seções empilhadas em `src/App.jsx` e navegaç
    <section id="galeria" className="secao">
      <div className="container">
        <span className="secao__rotulo">Frase curta</span>
-       <h2 className="secao__titulo">
-         Nossa <span>galeria</span>
-       </h2>
+       <h2 className="secao__titulo">Nossa galeria</h2>
        {/* conteúdo */}
      </div>
    </section>
    ```
 
    - `id` em minúsculas, sem acento: é a âncora do menu.
-   - A palavra dentro de `<span>` no título fica roxa. Só uma por título.
+   - O título fica **inteiro em roxo** (a classe `.secao__titulo` já faz isso). Não separe palavras em `<span>` com cores diferentes.
    - **Alterne o fundo:** as seções intercalam `secao` e `secao secao--alt`. Veja a ordem acima e escolha a classe que mantém a alternância.
 3. **Dados em `src/data/`**: textos e listas vão para `banda.js` (ou um arquivo novo, se for grande), nunca escritos direto no JSX.
 4. **Imagens**: `src/assets/images/`, sempre com `width`, `height`, `loading="lazy"` e `decoding="async"` (exceto no topo da página), e `alt` descritivo.

@@ -6,9 +6,7 @@ export default function Integrantes() {
     <section id="integrantes" className="secao">
       <div className="container">
         <span className="secao__rotulo">Quem sobe no palco</span>
-        <h2 className="secao__titulo">
-          <span>Integrantes</span>
-        </h2>
+        <h2 className="secao__titulo">Integrantes</h2>
         <p className="integrantes__dica" aria-hidden="true">
           Deslize para o lado →
         </p>

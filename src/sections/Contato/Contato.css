@@ -22,9 +22,6 @@
   font-size: clamp(2.2rem, 10vw, 3rem);
   margin-bottom: var(--espaco-md);
   text-wrap: balance;
-}
-
-.contato__titulo span {
   color: var(--cor-destaque);
 }
 

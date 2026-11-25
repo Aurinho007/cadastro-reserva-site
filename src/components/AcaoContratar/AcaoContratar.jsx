@@ -42,7 +42,7 @@ export default function AcaoContratar() {
         aria-label="Contratar a Cadastro Reserva pelo WhatsApp"
         tabIndex={visivel ? undefined : -1}
       >
-        <Icone nome="whatsapp" tamanho={24} />
+        <Icone nome="whatsapp" tamanho={22} />
         <span className="acao-contratar__texto">Contratar o show</span>
       </a>
       <a
@@ -53,7 +53,7 @@ export default function AcaoContratar() {
         aria-label="Instagram da Cadastro Reserva"
         tabIndex={visivel ? undefined : -1}
       >
-        <Icone nome="instagram" tamanho={24} />
+        <Icone nome="instagram" tamanho={22} />
       </a>
     </div>
   )

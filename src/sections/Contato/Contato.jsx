@@ -14,11 +14,10 @@ export default function Contato() {
       <div className="container contato__conteudo">
         <span className="secao__rotulo">Bora fechar?</span>
         <h2 className="contato__titulo">
-          Que tal levar essa <span>energia</span> para o seu evento?
+          Que tal levar essa energia para o seu evento?
         </h2>
         <p className="texto">
-          Chama no WhatsApp com a data, o horário e o tipo de evento. A gente responde com tudo o que você
-          precisa saber para fechar o show.
+          Manda uma mensagem com a data e o tipo de evento. A mensagem já vai pronta, é só completar.
         </p>
 
         <div className="contato__acoes">

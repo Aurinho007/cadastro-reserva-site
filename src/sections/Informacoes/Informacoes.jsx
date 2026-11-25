@@ -18,10 +18,8 @@ export default function Informacoes() {
       </div>
 
       <div className="informacoes__conteudo">
-        <span className="secao__rotulo">Para contratar</span>
-        <h2 className="secao__titulo">
-          <span>Informações</span>
-        </h2>
+        <span className="secao__rotulo">Informações</span>
+        <h2 className="secao__titulo">Como contratar</h2>
 
         <dl className="informacoes__grade">
           {banda.informacoes.map((item) => (
@@ -36,7 +34,7 @@ export default function Informacoes() {
         </dl>
 
         <Botao href={links.whatsapp} icone="whatsapp" tamanho="grande">
-          Consultar data no WhatsApp
+          Ver se a sua data está livre
         </Botao>
       </div>
     </section>

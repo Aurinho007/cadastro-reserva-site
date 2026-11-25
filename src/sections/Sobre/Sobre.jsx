@@ -16,9 +16,7 @@ export default function Sobre() {
       <div className="container sobre">
         <header className="sobre__cabecalho">
           <span className="secao__rotulo">Quem somos</span>
-          <h2 className="secao__titulo">
-            A <span>banda</span>
-          </h2>
+          <h2 className="secao__titulo">A banda</h2>
         </header>
 
         <div className="sobre__foto">
@@ -35,7 +33,11 @@ export default function Sobre() {
         </div>
 
         <div className="sobre__corpo">
-          <p className="texto">{banda.proposta}</p>
+          {banda.proposta.map((paragrafo) => (
+            <p key={paragrafo} className="texto">
+              {paragrafo}
+            </p>
+          ))}
 
           <figure className="energia">
             <div className="energia__barras" aria-hidden="true">

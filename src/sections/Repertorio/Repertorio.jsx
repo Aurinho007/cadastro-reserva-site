@@ -1,7 +1,7 @@
 import { banda } from '../../data/banda.js'
 import './Repertorio.css'
 
-const { texto, artistas } = banda.repertorio
+const { texto, pedido, artistas } = banda.repertorio
 
 export default function Repertorio() {
   return (
@@ -9,13 +9,10 @@ export default function Repertorio() {
       <div className="container repertorio">
         <div>
           <span className="secao__rotulo">O que tocamos</span>
-          <h2 className="secao__titulo">
-            O <span>repertório</span>
-          </h2>
+          <h2 className="secao__titulo">O repertório</h2>
           <p className="texto">{texto}</p>
           <p className="texto">
-            <strong>Quer uma música específica na sua festa?</strong> Dá para negociar a inclusão no
-            repertório na hora de fechar o show.
+            <strong>{pedido.pergunta}</strong> {pedido.resposta}
           </p>
         </div>
 
@@ -25,7 +22,7 @@ export default function Repertorio() {
             {artistas.map((artista) => (
               <li key={artista}>{artista}</li>
             ))}
-            <li className="repertorio__mais">e muito mais rock nacional e internacional</li>
+            <li className="repertorio__mais">e outros nomes do rock nacional e internacional</li>
           </ul>
         </div>
       </div>

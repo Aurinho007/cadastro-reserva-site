@@ -10,9 +10,7 @@ export default function Agenda() {
     <section id="agenda" className="secao">
       <div className="container">
         <span className="secao__rotulo">Vem ver ao vivo</span>
-        <h2 className="secao__titulo">
-          Próximos <span>shows</span>
-        </h2>
+        <h2 className="secao__titulo">Próximos shows</h2>
 
         <ul className="agenda__lista">
           {proximosShows.map((show) => (
@@ -29,7 +27,7 @@ export default function Agenda() {
               </div>
               {show.ingressos ? (
                 <Botao href={show.ingressos} variante="contorno">
-                  Ingressos
+                  Comprar ingresso
                 </Botao>
               ) : null}
             </li>

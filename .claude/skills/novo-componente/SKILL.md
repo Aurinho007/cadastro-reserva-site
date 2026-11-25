@@ -14,8 +14,8 @@ Componentes ficam em `src/components/<NomeEmPascalCase>/`, cada um com:
 
 | Componente | Para quê |
 | --- | --- |
-| `Botao` | Links/botões. `variante="cheio"` (roxo, ação principal) ou `"contorno"`; `icone="whatsapp|instagram|seta"`; `tamanho="grande"`. Links `http` abrem em nova aba sozinhos. |
-| `Icone` | Ícones SVG de traço. Novos ícones entram no objeto `icones`. |
+| `Botao` | Links/botões. `variante="cheio"` (roxo, ação principal) ou `"contorno"`; `icone="whatsapp|instagram"`; `tamanho="grande"`. Links `http` abrem em nova aba sozinhos. |
+| `Icone` | Logos oficiais do WhatsApp e do Instagram (`src/assets/icones/`, PNG preto com fundo transparente), aplicados como máscara CSS: a cor vem do texto em volta. Ícone novo: mesmo formato de PNG + uma entrada no objeto `icones`. |
 | `Rasgo` | Borda de papel rasgado (`lado="topo"` ou `"base"`); a cor vem do `color` do pai. |
 | `RedesSociais` | Lista Instagram + WhatsApp com ícones. |
 | `AcaoContratar` | Ação fixa de contratação: barra no rodapé do celular, botão redondo no computador. Some enquanto o topo ou o contato estão na tela. |
