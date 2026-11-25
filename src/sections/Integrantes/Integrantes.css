@@ -1,0 +1,45 @@
+.integrantes {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--espaco-md);
+}
+
+.integrante {
+  text-align: center;
+}
+
+.integrante img {
+  width: 100%;
+  transition: transform 0.4s var(--curva);
+}
+
+.integrante:hover img {
+  transform: translateY(-8px) rotate(-2deg);
+}
+
+.integrante__nome {
+  margin-top: var(--espaco-sm);
+  font-size: 1.9rem;
+}
+
+.integrante__funcao {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--cor-destaque);
+}
+
+@media (max-width: 860px) {
+  .integrantes {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    row-gap: var(--espaco-lg);
+  }
+}
+
+@media (max-width: 520px) {
+  .integrantes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

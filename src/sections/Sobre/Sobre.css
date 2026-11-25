@@ -1,0 +1,70 @@
+.sobre {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: var(--espaco-xl);
+}
+
+/* A foto já vem com a moldura de papel rasgado do release; a máscara some com os cantos */
+.sobre__foto img {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  -webkit-mask-image: radial-gradient(circle closest-side, #000 97%, transparent 100%);
+  mask-image: radial-gradient(circle closest-side, #000 97%, transparent 100%);
+  transform: rotate(-3deg);
+}
+
+.energia {
+  margin-top: var(--espaco-lg);
+  max-width: 460px;
+}
+
+.energia__barras {
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  height: 90px;
+}
+
+.energia__barras span {
+  flex: 1;
+  height: calc(12% + var(--i) * 5.8%);
+  background: linear-gradient(to top, var(--cor-destaque-escuro), var(--cor-destaque));
+  opacity: calc(0.3 + var(--i) * 0.045);
+  border-radius: 2px 2px 0 0;
+  transform-origin: bottom;
+  animation: equalizador 1.6s ease-in-out infinite alternate;
+  animation-delay: calc(var(--i) * -110ms);
+}
+
+@keyframes equalizador {
+  to {
+    transform: scaleY(0.82);
+  }
+}
+
+.energia__legenda {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--espaco-sm);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--cor-texto-suave);
+}
+
+.energia__legenda span:last-child {
+  color: var(--cor-destaque);
+}
+
+@media (max-width: 860px) {
+  .sobre {
+    grid-template-columns: 1fr;
+  }
+
+  .sobre__foto img {
+    max-width: 380px;
+  }
+}

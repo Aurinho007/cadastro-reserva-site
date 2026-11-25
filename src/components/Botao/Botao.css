@@ -1,0 +1,59 @@
+.botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 48px;
+  padding: 0.8rem 1.6rem;
+  border: 2px solid var(--cor-destaque);
+  border-radius: var(--raio);
+  font-family: var(--fonte-texto);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition:
+    background var(--transicao),
+    color var(--transicao),
+    border-color var(--transicao),
+    transform var(--transicao),
+    box-shadow var(--transicao);
+}
+
+.botao:hover {
+  transform: translateY(-2px);
+}
+
+.botao:active {
+  transform: translateY(0);
+}
+
+/* Principal: roxo com texto preto (branco no roxo não tem contraste suficiente) */
+.botao--cheio {
+  background: var(--cor-destaque);
+  color: var(--cor-sobre-destaque);
+}
+
+.botao--cheio:hover {
+  background: var(--cor-destaque-claro);
+  border-color: var(--cor-destaque-claro);
+  box-shadow: 0 10px 30px -10px var(--cor-destaque);
+}
+
+.botao--contorno {
+  background: transparent;
+  color: var(--cor-texto);
+  border-color: var(--cor-texto);
+}
+
+.botao--contorno:hover {
+  border-color: var(--cor-destaque);
+  color: var(--cor-destaque);
+}
+
+.botao--grande {
+  min-height: 60px;
+  padding: 1rem 2.2rem;
+  font-size: 1rem;
+}

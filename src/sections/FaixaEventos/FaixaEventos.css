@@ -1,0 +1,38 @@
+.faixa {
+  position: relative;
+  z-index: 2;
+  color: var(--cor-papel); /* cor das bordas rasgadas */
+  background: var(--cor-papel);
+  padding: 1.1rem 0;
+  overflow: hidden visible;
+  transform: rotate(-1.2deg);
+  margin: -1rem -2vw;
+}
+
+.faixa__trilho {
+  display: flex;
+  width: max-content;
+  animation: faixa-rolagem 38s linear infinite;
+}
+
+.faixa__item {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--fonte-titulo);
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  text-transform: uppercase;
+  color: var(--cor-papel-texto);
+  white-space: nowrap;
+}
+
+.faixa__separador {
+  color: var(--cor-destaque-escuro);
+  font-size: 0.7em;
+  margin: 0 1.4rem;
+}
+
+@keyframes faixa-rolagem {
+  to {
+    transform: translateX(-50%);
+  }
+}

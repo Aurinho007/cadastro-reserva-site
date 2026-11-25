@@ -1,0 +1,24 @@
+.redes {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-sm);
+}
+
+.redes a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-height: 44px;
+  color: var(--cor-texto);
+  transition: color var(--transicao);
+}
+
+.redes a:hover {
+  color: var(--cor-destaque);
+}
+
+.redes strong {
+  font-weight: 700;
+  margin-right: 0.25rem;
+}

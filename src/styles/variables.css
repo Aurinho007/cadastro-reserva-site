@@ -1,0 +1,40 @@
+/* Identidade visual da Cadastro Reserva — preto e roxo (#be73d7).
+   Altere cores e fontes aqui: o site inteiro usa estas variáveis. */
+:root {
+  /* Cores */
+  --cor-fundo: #0b0b0b;
+  --cor-fundo-alt: #141414;
+  --cor-superficie: #1c1c1c;
+  --cor-borda: #2b2b2b;
+  --cor-texto: #f4f1ec;
+  --cor-texto-suave: #b4b0aa;
+
+  --cor-destaque: #be73d7; /* roxo da banda */
+  --cor-destaque-claro: #dcaaec;
+  --cor-destaque-escuro: #9a4fb4;
+  --cor-sobre-destaque: #0b0b0b; /* texto em cima do roxo: preto (contraste 6:1) */
+
+  --cor-papel: #e9e6e0; /* papel rasgado */
+  --cor-papel-texto: #111111;
+
+  /* Tipografia */
+  --fonte-titulo: 'Anton', Impact, 'Arial Narrow', sans-serif;
+  --fonte-texto: 'Open Sans', system-ui, -apple-system, sans-serif;
+
+  /* Espaçamentos */
+  --espaco-xs: 0.25rem;
+  --espaco-sm: 0.5rem;
+  --espaco-md: 1rem;
+  --espaco-lg: 2rem;
+  --espaco-xl: 4rem;
+  --espaco-xxl: 6rem;
+
+  /* Layout */
+  --largura-max: 1160px;
+  --altura-header: 72px;
+  --raio: 6px;
+
+  /* Movimento */
+  --curva: cubic-bezier(0.16, 1, 0.3, 1);
+  --transicao: 0.25s var(--curva);
+}
