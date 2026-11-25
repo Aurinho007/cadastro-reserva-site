@@ -58,7 +58,7 @@ export const banda = {
     },
     {
       titulo: 'Cachê',
-      destaque: 'A partir de R$ 800', // espaço que não quebra: "R$" e "800" ficam sempre juntos
+      destaque: 'A partir de R$ 400', // espaço que não quebra: "R$" e "800" ficam sempre juntos
       texto: 'Já inclui instrumentos, som e toda a estrutura que o seu local precisar.',
     },
     {
