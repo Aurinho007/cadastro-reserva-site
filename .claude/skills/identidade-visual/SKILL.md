@@ -33,14 +33,23 @@ Regras:
 
 - **Títulos:** `--fonte-titulo` (Anton), sempre em caixa alta — igual aos títulos do release.
 - **Texto:** `--fonte-texto` (Open Sans), 17px, linha 1.65, largura máx. ~62ch (`.texto`).
-- **Rótulos** acima dos títulos (`.secao__rotulo`): 0.8rem, negrito, caixa alta, `letter-spacing: 0.18em`, **branco** (`--cor-texto`), em contraste com o título roxo logo abaixo.
+- **Rótulos** acima dos títulos (`.secao__rotulo`): 0.8rem, negrito, caixa alta, `letter-spacing: 0.18em`, **branco** (`--cor-texto`), em contraste com o título roxo logo abaixo. Com **barra roxa à esquerda** (componente `CabecalhoSecao`).
+- **Marcador:** `--fonte-marcador` (Permanent Marker) só para o que parece escrito à mão: legendas do painel de volume e "Rock de verdade." do rodapé. Nunca em texto longo.
+- **Contorno:** classe `.contorno` (palavra só com contorno, ex.: "RESERVA" no rodapé).
 - Títulos responsivos com `clamp()`.
 - O nome da banda em letras recortadas **é a logo** (`src/assets/images/logo.png`). Não tente recriar com fontes.
 
 ## Elementos da marca
 
-- **Logo completa** (`logo.png`): só no topo (Hero). PNG transparente, feita para fundo preto.
+- **Logo completa** (`logo.png`): só no topo (Hero), sobre um **disco de vinil brilhante girando** (138% da largura da logo, para as letras ficarem dentro do disco).
+- **Caixa "● ao vivo"** no topo: borda branca, luz roxa piscando (`.hero__aovivo`).
 - **Mão com microfone** (`logo-mao.png`): cabeçalho, rodapé e favicon.
+- **Fitas cruzadas** (`FitasCruzadas`): duas faixas em X, uma roxa (tipos de evento) e uma de papel (fatos rápidos), rolando em sentidos opostos.
+- **Seções numeradas**: `CabecalhoSecao` coloca o número da seção grande e contornado ao fundo (números vêm de `src/data/secoes.js`).
+- **Painel de volume** ("A banda"): amplificador de 1 a 11, de "Começo tranquilo" a "A noite pega fogo".
+- **Ingressos** ("Como contratar"): cada informação é um ingresso com canhoto roxo e picote.
+- **Rodapé**: nome gigante, "CADASTRO" cheio + "RESERVA" contornado em roxo.
+- **Estilo pôster** nesses elementos: borda grossa (`--borda-grossa`) e sombra sólida deslocada (`--sombra-dura`).
 - **Papel rasgado**: componente `Rasgo` (bordas) + `--cor-papel`. Use em faixas e divisórias, com parcimônia.
 - **Etiquetas recortadas**: listas curtas e marcantes (ex.: artistas do repertório) alternando papel/preto contornado/roxo, levemente giradas.
 - **Granulado**: já aplicado no `body::after` do `global.css`; não adicione outro.

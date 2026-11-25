@@ -1,10 +1,12 @@
 import { banda } from '../../data/banda.js'
+import { numero } from '../../data/secoes.js'
 import fotoBanda from '../../assets/images/banda-reunida.jpg'
 import fotoBanda600 from '../../assets/images/banda-reunida-600.jpg'
+import CabecalhoSecao from '../../components/CabecalhoSecao/CabecalhoSecao.jsx'
 import './Sobre.css'
 
-// Medidor que ilustra a proposta: o show começa tranquilo e a energia vai crescendo.
-const barras = Array.from({ length: 16 }, (_, i) => i)
+// Painel de amplificador que ilustra a proposta: o volume do show vai subindo de 1 a 11.
+const niveis = Array.from({ length: 11 }, (_, i) => i + 1)
 
 const fotoSrcSet = `${fotoBanda600} 600w, ${fotoBanda} 1000w`
 const fotoSizes = '(min-width: 960px) 520px, (min-width: 720px) 380px, 280px'
@@ -15,8 +17,7 @@ export default function Sobre() {
       {/* Ordem no celular: título → foto → texto. No computador: foto à esquerda. */}
       <div className="container sobre">
         <header className="sobre__cabecalho">
-          <span className="secao__rotulo">Quem somos</span>
-          <h2 className="secao__titulo">A banda</h2>
+          <CabecalhoSecao numero={numero.sobre} rotulo="Quem somos" titulo="A banda" />
         </header>
 
         <div className="sobre__foto">
@@ -39,13 +40,20 @@ export default function Sobre() {
             </p>
           ))}
 
-          <figure className="energia">
-            <div className="energia__barras" aria-hidden="true">
-              {barras.map((i) => (
-                <span key={i} style={{ '--i': i }} />
-              ))}
+          <figure className="amp">
+            <div className="amp__painel" aria-hidden="true">
+              <span className="amp__marca">Volume</span>
+              <div className="amp__niveis">
+                {niveis.map((nivel) => (
+                  <span key={nivel} className="amp__nivel" style={{ '--n': nivel }}>
+                    <span className="amp__led" />
+                    <span className="amp__numero">{nivel}</span>
+                  </span>
+                ))}
+              </div>
+              <span className="amp__botao" />
             </div>
-            <figcaption className="energia__legenda">
+            <figcaption className="amp__legenda">
               <span>Começo tranquilo</span>
               <span>A noite pega fogo</span>
             </figcaption>

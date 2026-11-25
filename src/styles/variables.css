@@ -24,6 +24,11 @@
   /* Tipografia */
   --fonte-titulo: 'Anton', Impact, 'Arial Narrow', sans-serif;
   --fonte-texto: 'Open Sans', system-ui, -apple-system, sans-serif;
+  --fonte-marcador: 'Permanent Marker', 'Comic Sans MS', cursive; /* "escrito à mão": painel de volume e rodapé */
+
+  /* Estilo pôster (painel de volume, ingressos, rodapé) */
+  --borda-grossa: 3px;
+  --sombra-dura: 5px; /* deslocamento da sombra sólida */
 
   /* Espaçamentos */
   --espaco-xs: 0.25rem;
@@ -51,6 +56,7 @@
     --margem-lateral: 2rem;
     --espaco-xl: 4rem;
     --espaco-xxl: 5rem;
+    --sombra-dura: 6px;
   }
 }
 

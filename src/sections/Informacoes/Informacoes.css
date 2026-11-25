@@ -5,77 +5,135 @@
   padding-bottom: 0;
 }
 
+/* Foto secundária e inteira (sem corte), pequena: o foco da seção são as informações */
+.informacoes__foto {
+  padding: var(--espaco-xl) var(--margem-lateral) 0;
+}
+
 .informacoes__foto img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  object-position: center 30%;
+  width: min(56vw, 230px);
+  height: auto;
+  margin: 0 auto;
 }
 
 .informacoes__conteudo {
   padding: var(--espaco-xl) var(--margem-lateral);
 }
 
-.informacoes__grade {
+/* Ingressos: um por informação, empilhados no celular */
+.ingressos {
+  list-style: none;
   display: grid;
   gap: var(--espaco-lg);
-  margin-bottom: var(--espaco-lg);
+  margin: var(--espaco-md) 0 var(--espaco-xl);
+  padding-right: var(--sombra-dura);
 }
 
-.info {
-  border-top: 2px solid var(--cor-destaque);
-  padding-top: var(--espaco-md);
+.ingresso {
+  --picote: 14px; /* tamanho dos recortes redondos do picote */
+  --canhoto: 52px;
+  filter: drop-shadow(var(--sombra-dura) var(--sombra-dura) 0 var(--cor-destaque));
 }
 
-.info__titulo {
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: var(--cor-texto-suave);
+.ingresso:nth-child(even) {
+  transform: rotate(0.8deg);
 }
 
-.info__destaque {
+.ingresso:nth-child(odd) {
+  transform: rotate(-0.8deg);
+}
+
+.ingresso__bilhete {
+  display: grid;
+  grid-template-columns: var(--canhoto) 1fr;
+  height: 100%;
+  min-height: 150px;
+  background: var(--cor-papel);
+  color: var(--cor-papel-texto);
+  /* recortes do picote em cima e embaixo, na linha entre canhoto e corpo */
+  -webkit-mask:
+    radial-gradient(circle var(--picote) at var(--canhoto) 0, transparent 98%, #000) top / 100% 51% no-repeat,
+    radial-gradient(circle var(--picote) at var(--canhoto) 100%, transparent 98%, #000) bottom / 100% 51% no-repeat;
+  mask:
+    radial-gradient(circle var(--picote) at var(--canhoto) 0, transparent 98%, #000) top / 100% 51% no-repeat,
+    radial-gradient(circle var(--picote) at var(--canhoto) 100%, transparent 98%, #000) bottom / 100% 51% no-repeat;
+}
+
+/* Canhoto roxo com o nome em pé */
+.ingresso__canhoto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--cor-destaque);
+  border-right: 3px dashed var(--cor-papel-texto);
+}
+
+.ingresso__canhoto span {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
   font-family: var(--fonte-titulo);
-  font-size: 1.6rem;
+  font-size: 1.15rem;
   text-transform: uppercase;
-  line-height: 1.1;
-  margin: 0.25rem 0 0.4rem;
+  letter-spacing: 0.12em;
+  color: var(--cor-sobre-destaque);
 }
 
-.info__texto {
+.ingresso__corpo {
+  padding: 1.1rem 1.1rem 1.1rem 1.3rem;
+}
+
+.ingresso__destaque {
+  font-family: var(--fonte-titulo);
+  font-size: 2rem;
+  line-height: 1.05;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.ingresso__texto {
   font-size: 0.95rem;
-  color: var(--cor-texto-suave);
+  line-height: 1.5;
+  color: #3a3a3a;
 }
 
 .informacoes__conteudo .botao {
   width: 100%;
 }
 
-/* ---------- 480px+: informações em 2 colunas ---------- */
-@media (min-width: 480px) {
-  .informacoes__grade {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: var(--espaco-lg);
-  }
-}
-
 /* ---------- 720px+ ---------- */
 @media (min-width: 720px) {
+  .informacoes__foto {
+    padding-top: var(--espaco-xxl);
+  }
+
   .informacoes__foto img {
-    height: 340px;
+    width: 260px;
   }
 
   .informacoes__conteudo {
     padding: var(--espaco-xxl) var(--margem-lateral);
   }
 
-  .informacoes__grade {
-    margin-bottom: var(--espaco-xl);
+  /* ingressos em 2 colunas */
+  .ingressos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--espaco-xl) var(--espaco-lg);
   }
 
-  .info__destaque {
-    font-size: clamp(1.6rem, 2.6vw, 2rem);
+  .ingresso {
+    --canhoto: 60px;
+  }
+
+  .ingresso__canhoto span {
+    font-size: 1.35rem;
+  }
+
+  .ingresso__corpo {
+    padding: 1.4rem 1.4rem 1.4rem 1.6rem;
+  }
+
+  .ingresso__destaque {
+    font-size: 2.4rem;
   }
 
   .informacoes__conteudo .botao {
@@ -85,24 +143,42 @@
 
 /* ---------- 960px+: foto encostada na borda esquerda, como no release ---------- */
 @media (min-width: 960px) {
+  /* foto inteira numa coluna estreita à esquerda, alinhada com o conteúdo das outras seções */
   .informacoes {
-    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    grid-template-columns: 260px minmax(0, 1fr);
     align-items: center;
     gap: var(--espaco-xl);
+    padding-inline: max(
+      var(--margem-lateral),
+      calc((100% - var(--largura-max)) / 2 + var(--margem-lateral))
+    );
   }
 
   .informacoes__foto {
-    align-self: stretch;
+    padding: 0;
   }
 
   .informacoes__foto img {
-    height: 100%;
-    min-height: 560px;
-    object-position: right center;
+    width: 100%;
+    margin: 0;
   }
 
   .informacoes__conteudo {
-    padding: var(--espaco-xxl) var(--margem-lateral) var(--espaco-xxl) 0;
-    max-width: 680px;
+    padding: var(--espaco-xxl) 0;
+  }
+
+  .ingresso__destaque {
+    font-size: 2rem;
+  }
+}
+
+/* ---------- 1200px+: ingressos com mais espaço, destaque maior ---------- */
+@media (min-width: 1200px) {
+  .informacoes {
+    grid-template-columns: 300px minmax(0, 1fr);
+  }
+
+  .ingresso__destaque {
+    font-size: 2.3rem;
   }
 }

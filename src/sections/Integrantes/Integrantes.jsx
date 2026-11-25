@@ -1,12 +1,13 @@
 import { banda } from '../../data/banda.js'
+import { numero } from '../../data/secoes.js'
+import CabecalhoSecao from '../../components/CabecalhoSecao/CabecalhoSecao.jsx'
 import './Integrantes.css'
 
 export default function Integrantes() {
   return (
     <section id="integrantes" className="secao">
       <div className="container">
-        <span className="secao__rotulo">Quem sobe no palco</span>
-        <h2 className="secao__titulo">Integrantes</h2>
+        <CabecalhoSecao numero={numero.integrantes} rotulo="Quem sobe no palco" titulo="Integrantes" />
         <p className="integrantes__dica" aria-hidden="true">
           Deslize para o lado →
         </p>

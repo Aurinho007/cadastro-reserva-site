@@ -1,19 +1,12 @@
 import { useEffect, useState } from 'react'
 import { banda, links } from '../../data/banda.js'
-import { proximosShows } from '../../data/shows.js'
+import { secoes } from '../../data/secoes.js'
 import logoMao from '../../assets/images/logo-mao.png'
 import Icone from '../Icone/Icone.jsx'
 import './Header.css'
 
-// Ordem do menu = ordem das seções na página. Agenda só aparece se houver shows.
-const itensMenu = [
-  { href: '#sobre', rotulo: 'A banda' },
-  { href: '#repertorio', rotulo: 'Repertório' },
-  { href: '#integrantes', rotulo: 'Integrantes' },
-  { href: '#informacoes', rotulo: 'Como contratar' },
-  proximosShows.length > 0 ? { href: '#agenda', rotulo: 'Agenda' } : null,
-  { href: '#contato', rotulo: 'Contato' },
-].filter(Boolean)
+// Ordem do menu = ordem das seções na página (src/data/secoes.js). Agenda só aparece se houver shows.
+const itensMenu = secoes.map((secao) => ({ href: `#${secao.id}`, rotulo: secao.menu }))
 
 export default function Header() {
   const [aberto, setAberto] = useState(false)

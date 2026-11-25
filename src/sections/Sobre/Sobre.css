@@ -33,48 +33,116 @@
   transform: rotate(-3deg);
 }
 
-.energia {
-  margin-top: var(--espaco-lg);
-  max-width: 460px;
+/* ---------- Amplificador ---------- */
+.amp {
+  margin-top: var(--espaco-xl);
+  max-width: 520px;
 }
 
-.energia__barras {
+.amp__painel {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.9rem 0.9rem 0.7rem;
+  border: var(--borda-grossa) solid var(--cor-texto);
+  box-shadow: var(--sombra-dura) var(--sombra-dura) 0 var(--cor-destaque);
+  /* textura de "tolex" de amplificador */
+  background:
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.025) 0 2px, transparent 2px 5px),
+    #161616;
+}
+
+.amp__marca {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-family: var(--fonte-marcador);
+  font-size: 0.9rem;
+  color: var(--cor-destaque);
+}
+
+.amp__niveis {
+  flex: 1;
   display: flex;
   align-items: flex-end;
-  gap: 4px;
-  height: 64px;
+  gap: 3px;
 }
 
-.energia__barras span {
+.amp__nivel {
   flex: 1;
-  height: calc(12% + var(--i) * 5.8%);
-  background: linear-gradient(to top, var(--cor-destaque-escuro), var(--cor-destaque));
-  opacity: calc(0.3 + var(--i) * 0.045);
-  border-radius: 2px 2px 0 0;
-  transform-origin: bottom;
-  animation: equalizador 1.6s ease-in-out infinite alternate;
-  animation-delay: calc(var(--i) * -110ms);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
 }
 
-@keyframes equalizador {
-  to {
-    transform: scaleY(0.82);
+/* LEDs acendem em sequência e ficam acesos (efeito de volume subindo) */
+.amp__led {
+  width: 100%;
+  height: calc(10px + var(--n) * 5px);
+  background: var(--cor-destaque);
+  opacity: 0.18;
+  animation: led-acende 3.2s steps(1) infinite;
+  animation-delay: calc(var(--n) * 0.18s);
+}
+
+.amp__nivel:nth-child(n + 10) .amp__led {
+  background: var(--cor-papel);
+}
+
+@keyframes led-acende {
+  0% {
+    opacity: 0.18;
+  }
+  10%,
+  80% {
+    opacity: 1;
   }
 }
 
-.energia__legenda {
-  display: flex;
-  justify-content: space-between;
-  gap: var(--espaco-md);
-  margin-top: var(--espaco-sm);
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+.amp__numero {
+  font-family: var(--fonte-titulo);
+  font-size: 0.75rem;
   color: var(--cor-texto-suave);
 }
 
-.energia__legenda span:last-child {
+.amp__nivel:last-child .amp__numero {
+  color: var(--cor-destaque);
+}
+
+/* Botão de volume girado no máximo */
+.amp__botao {
+  position: relative;
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #555, #111 70%);
+  border: 2px solid var(--cor-texto);
+  transform: rotate(135deg);
+}
+
+.amp__botao::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 4px;
+  width: 3px;
+  height: 13px;
+  margin-left: -1.5px;
+  background: var(--cor-destaque);
+}
+
+.amp__legenda {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--espaco-md);
+  margin-top: var(--espaco-md);
+  font-family: var(--fonte-marcador);
+  font-size: 0.95rem;
+  color: var(--cor-texto-suave);
+}
+
+.amp__legenda span:last-child {
   color: var(--cor-destaque);
   text-align: right;
 }
@@ -85,14 +153,30 @@
     width: 380px;
   }
 
-  .energia__barras {
-    height: 90px;
+  .amp__painel {
+    gap: 1.2rem;
+    padding: 1.1rem 1.2rem 0.8rem;
+  }
+
+  .amp__niveis {
     gap: 5px;
   }
 
-  .energia__legenda {
-    font-size: 0.75rem;
-    letter-spacing: 0.12em;
+  .amp__led {
+    height: calc(12px + var(--n) * 6px);
+  }
+
+  .amp__numero {
+    font-size: 0.85rem;
+  }
+
+  .amp__botao {
+    width: 54px;
+    height: 54px;
+  }
+
+  .amp__legenda {
+    font-size: 1.05rem;
   }
 }
 

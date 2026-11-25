@@ -12,9 +12,9 @@ React 19 + Vite, JavaScript (sem TypeScript), CSS puro com variáveis. O conteú
 
 ## Estrutura
 
-- `src/sections/`: seções da página única, montadas em `src/App.jsx` (Hero, FaixaEventos, Sobre, Repertorio, Integrantes, Informacoes, Agenda, Contato)
-- `src/components/`: peças reutilizáveis (Header, Footer, Botao, Icone, Rasgo, RedesSociais, AcaoContratar)
-- `src/data/`: **todo o conteúdo editável** (`banda.js`, `shows.js`)
+- `src/sections/`: seções da página única, montadas em `src/App.jsx` (Hero, FitasCruzadas, Sobre, Repertorio, Integrantes, Informacoes, Agenda, Contato)
+- `src/components/`: peças reutilizáveis (Header, Footer, Botao, Icone, Rasgo, RedesSociais, AcaoContratar, CabecalhoSecao)
+- `src/data/`: **todo o conteúdo editável** (`banda.js`, `shows.js`) e a ordem/numeração das seções (`secoes.js`)
 - `src/styles/variables.css`: cores, fontes, espaçamentos; `global.css`: reset, granulado e utilitários (`.container`, `.secao`, `.secao__rotulo`, `.secao__titulo`, `.texto`)
 - `src/assets/images/`: logo, mão, fotos e avatares (extraídos do release)
 

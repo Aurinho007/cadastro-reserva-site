@@ -16,11 +16,91 @@
 }
 
 /* Logo limitada pela altura da tela, para não empurrar o botão para baixo */
+/* --logo = largura da logo. O disco atrás tem 138% dessa largura e passa da logo
+   em cima (~13%) e embaixo (~17%), por isso as margens calculadas a partir dela. */
+.hero__marca {
+  --logo: min(220px, 56vw, 22svh);
+  position: relative;
+  z-index: 0;
+  display: block;
+  width: var(--logo);
+  margin: calc(var(--logo) * 0.13) auto calc(var(--logo) * 0.17 + var(--espaco-sm));
+}
+
 .hero__logo img {
-  width: min(240px, 60vw, 26svh);
-  margin: 0 auto;
+  position: relative;
+  width: 100%;
   filter: drop-shadow(0 0 40px rgba(190, 115, 215, 0.25));
   animation: logo-entrada 1.1s var(--curva) both;
+}
+
+/* Disco de vinil atrás da logo, centralizado na mão: sulcos + reflexo girando + brilho roxo */
+.hero__disco {
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  top: 52%;
+  width: 138%; /* maior que a logo inteira: as letras recortadas ficam dentro do disco */
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, var(--cor-fundo) 0 2.5%, var(--cor-destaque) 2.6% 3.4%, transparent 3.5%),
+    conic-gradient(
+      from 0deg,
+      transparent 0deg 30deg,
+      rgba(255, 255, 255, 0.14) 45deg,
+      transparent 60deg 210deg,
+      rgba(255, 255, 255, 0.12) 225deg,
+      transparent 240deg
+    ),
+    repeating-radial-gradient(circle, #121212 0 2px, #1d1d1d 2px 4px);
+  box-shadow:
+    0 0 0 var(--borda-grossa) var(--cor-fundo),
+    0 0 50px rgba(190, 115, 215, 0.45),
+    0 20px 60px -10px rgba(190, 115, 215, 0.45);
+  transform: translate(-50%, -50%);
+  animation: disco-girando 6s linear infinite;
+}
+
+@keyframes disco-girando {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Caixa "● AO VIVO" com a luz roxa piscando */
+.hero__aovivo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: var(--espaco-sm);
+  padding: 0.35rem 0.65rem;
+  border: 2px solid var(--cor-texto);
+  background: var(--cor-fundo);
+  font-size: 0.66rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  text-align: left;
+}
+
+.hero__ponto {
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--cor-destaque);
+  box-shadow: 0 0 0 0 var(--cor-destaque);
+  animation: gravando 1.4s ease-out infinite;
+}
+
+@keyframes gravando {
+  70% {
+    box-shadow: 0 0 0 8px rgba(190, 115, 215, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(190, 115, 215, 0);
+  }
 }
 
 @keyframes logo-entrada {
@@ -98,8 +178,15 @@
     grid-template-columns: 1fr 1fr;
   }
 
-  .hero__logo img {
-    width: min(320px, 40svh);
+  .hero__marca {
+    --logo: min(300px, 36svh);
+  }
+
+  .hero__aovivo {
+    margin-bottom: var(--espaco-md);
+    padding: 0.35rem 0.7rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.16em;
   }
 
   .hero__chamada {
@@ -131,9 +218,13 @@
     text-align: left;
   }
 
+  /* menor que a coluna, para o disco (138% da logo) não passar da borda da tela */
+  .hero__marca {
+    --logo: min(72%, 400px);
+    margin-block: 0;
+  }
+
   .hero__logo img {
-    width: 100%;
-    max-width: 480px;
     filter: drop-shadow(0 0 60px rgba(190, 115, 215, 0.25));
   }
 

@@ -1,5 +1,7 @@
 import { proximosShows } from '../../data/shows.js'
+import { numero } from '../../data/secoes.js'
 import Botao from '../../components/Botao/Botao.jsx'
+import CabecalhoSecao from '../../components/CabecalhoSecao/CabecalhoSecao.jsx'
 import './Agenda.css'
 
 // Só aparece quando há shows futuros em src/data/shows.js
@@ -9,8 +11,7 @@ export default function Agenda() {
   return (
     <section id="agenda" className="secao">
       <div className="container">
-        <span className="secao__rotulo">Vem ver ao vivo</span>
-        <h2 className="secao__titulo">Próximos shows</h2>
+        <CabecalhoSecao numero={numero.agenda} rotulo="Vem ver ao vivo" titulo="Próximos shows" />
 
         <ul className="agenda__lista">
           {proximosShows.map((show) => (

@@ -1,7 +1,9 @@
 import { banda, links } from '../../data/banda.js'
 import fotoPalco from '../../assets/images/mari-palco.jpg'
 import fotoPalco640 from '../../assets/images/mari-palco-640.jpg'
+import { numero } from '../../data/secoes.js'
 import Botao from '../../components/Botao/Botao.jsx'
+import CabecalhoSecao from '../../components/CabecalhoSecao/CabecalhoSecao.jsx'
 import RedesSociais from '../../components/RedesSociais/RedesSociais.jsx'
 import './Contato.css'
 
@@ -12,10 +14,12 @@ export default function Contato() {
   return (
     <section id="contato" className="secao contato">
       <div className="container contato__conteudo">
-        <span className="secao__rotulo">Bora fechar?</span>
-        <h2 className="contato__titulo">
-          Que tal levar essa energia para o seu evento?
-        </h2>
+        <CabecalhoSecao
+          numero={numero.contato}
+          rotulo="Bora fechar?"
+          titulo="Que tal levar essa energia para o seu evento?"
+          classeTitulo="contato__titulo"
+        />
         <p className="texto">
           Manda uma mensagem com a data e o tipo de evento. A mensagem já vai pronta, é só completar.
         </p>

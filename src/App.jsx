@@ -2,7 +2,7 @@ import Header from './components/Header/Header.jsx'
 import Footer from './components/Footer/Footer.jsx'
 import AcaoContratar from './components/AcaoContratar/AcaoContratar.jsx'
 import Hero from './sections/Hero/Hero.jsx'
-import FaixaEventos from './sections/FaixaEventos/FaixaEventos.jsx'
+import FitasCruzadas from './sections/FitasCruzadas/FitasCruzadas.jsx'
 import Sobre from './sections/Sobre/Sobre.jsx'
 import Repertorio from './sections/Repertorio/Repertorio.jsx'
 import Integrantes from './sections/Integrantes/Integrantes.jsx'
@@ -16,7 +16,7 @@ export default function App() {
       <Header />
       <main>
         <Hero />
-        <FaixaEventos />
+        <FitasCruzadas />
         <Sobre />
         <Repertorio />
         <Integrantes />

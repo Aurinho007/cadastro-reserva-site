@@ -1,24 +1,40 @@
-/* ---------- Celular (base): uma coluna.
-   Espaço extra embaixo para a barra fixa "Contratar" não cobrir o rodapé. ---------- */
+/* ---------- Celular (base) ----------
+   Espaço extra embaixo para a barra fixa "Contratar" não cobrir o rodapé. */
 .footer {
-  border-top: 1px solid var(--cor-borda);
+  border-top: var(--borda-grossa) solid var(--cor-destaque);
   padding: var(--espaco-xl) 0
     calc(var(--espaco-lg) + var(--altura-barra-acao) + env(safe-area-inset-bottom));
   font-size: 0.9rem;
 }
 
-.footer__conteudo {
+.footer__nome {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--fonte-titulo);
+  font-size: 22vw;
+  line-height: 0.9;
+  text-transform: uppercase;
+  margin-bottom: var(--espaco-lg);
+}
+
+.footer__nome .contorno {
+  -webkit-text-stroke-color: var(--cor-destaque);
+}
+
+.footer__linha {
   display: grid;
   gap: var(--espaco-lg);
+  padding: var(--espaco-lg) 0;
+  border-top: 2px dashed var(--cor-borda);
 }
 
 .footer__marca {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  font-family: var(--fonte-titulo);
-  font-size: 1.75rem;
-  text-transform: uppercase;
+  font-family: var(--fonte-marcador);
+  font-size: 1.3rem;
+  color: var(--cor-destaque);
 }
 
 .footer__marca img {
@@ -28,33 +44,32 @@
 .footer__copy {
   color: var(--cor-texto-suave);
   font-size: 0.8rem;
-  padding-top: var(--espaco-lg);
-  border-top: 1px solid var(--cor-borda);
 }
 
-/* ---------- 720px+: marca à esquerda, contatos à direita ---------- */
+/* ---------- 720px+ ---------- */
 @media (min-width: 720px) {
-  .footer__conteudo {
+  .footer__nome {
+    flex-direction: row;
+    gap: 0.25em;
+    font-size: 12.5vw;
+  }
+
+  .footer__linha {
     grid-template-columns: 1fr auto;
     align-items: center;
   }
-
-  .footer__marca {
-    font-size: 2rem;
-  }
-
-  .footer__marca img {
-    width: 64px;
-  }
-
-  .footer__copy {
-    grid-column: 1 / -1;
-  }
 }
 
-/* ---------- 960px+: espaço para o botão redondo flutuante ---------- */
+/* ---------- 960px+: espaço para o botão flutuante ---------- */
 @media (min-width: 960px) {
   .footer {
     padding-bottom: calc(var(--espaco-xl) + 40px);
+  }
+}
+
+/* ---------- 1200px+: tamanho máximo do nome ---------- */
+@media (min-width: 1200px) {
+  .footer__nome {
+    font-size: 9.4rem;
   }
 }

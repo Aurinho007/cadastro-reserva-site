@@ -17,18 +17,26 @@ export default function Hero() {
     <section id="inicio" className="hero">
       <div className="container hero__conteudo">
         <h1 className="hero__logo">
-          <img
-            src={logo500}
-            srcSet={logoSrcSet}
-            sizes={logoSizes}
-            alt={banda.nome}
-            width="783"
-            height="849"
-            fetchPriority="high"
-          />
+          {/* Logo com um disco de vinil brilhante girando atrás */}
+          <span className="hero__marca">
+            <span className="hero__disco" aria-hidden="true" />
+            <img
+              src={logo500}
+              srcSet={logoSrcSet}
+              sizes={logoSizes}
+              alt={banda.nome}
+              width="783"
+              height="849"
+              fetchPriority="high"
+            />
+          </span>
         </h1>
 
         <div className="hero__texto">
+          <p className="hero__aovivo">
+            <span className="hero__ponto" aria-hidden="true" />
+                Rock nacional e internacional
+          </p>
           <p className="hero__chamada">
             {palavrasChamada.map((palavra, i) => (
               <Fragment key={i}>

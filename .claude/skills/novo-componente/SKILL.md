@@ -19,6 +19,7 @@ Componentes ficam em `src/components/<NomeEmPascalCase>/`, cada um com:
 | `Rasgo` | Borda de papel rasgado (`lado="topo"` ou `"base"`); a cor vem do `color` do pai. |
 | `RedesSociais` | Lista Instagram + WhatsApp com ícones. |
 | `AcaoContratar` | Ação fixa de contratação: barra no rodapé do celular, botão redondo no computador. Some enquanto o topo ou o contato estão na tela. |
+| `CabecalhoSecao` | Cabeçalho padrão de seção: barra roxa + rótulo branco + título roxo, com o número da seção grande e contornado ao fundo. Props: `numero` (de `src/data/secoes.js`), `rotulo`, `titulo`, `classeTitulo` (opcional). |
 
 ## Regras
 

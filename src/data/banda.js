@@ -11,8 +11,11 @@ export const banda = {
   descricao:
     'Banda ao vivo com clássicos do rock nacional e internacional, para colocar todo mundo para cantar junto. Levamos som, luz e instrumentos para festas, bares, pubs e festivais.',
 
-  // Tipos de evento — aparecem na faixa de papel logo abaixo do topo
+  // Tipos de evento — fita roxa logo abaixo do topo
   eventos: ['Festas particulares', 'Festivais', 'Bares', 'Pubs', 'Eventos especiais'],
+
+  // Fatos rápidos sobre o show — fita de papel, cruzada com a roxa
+  fatos: ['Ao vivo', 'Rock nacional e internacional', 'Som, luz e instrumentos inclusos', 'De 50 min a 3 h'],
 
   proposta: [
     'Tocamos os artistas que marcaram a história do rock, do nacional ao internacional.',
@@ -55,7 +58,7 @@ export const banda = {
     },
     {
       titulo: 'Cachê',
-      destaque: 'A partir de R$ 800',
+      destaque: 'A partir de R$ 800', // espaço que não quebra: "R$" e "800" ficam sempre juntos
       texto: 'Já inclui instrumentos, som e toda a estrutura que o seu local precisar.',
     },
     {

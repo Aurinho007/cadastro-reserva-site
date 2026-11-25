@@ -1,4 +1,6 @@
 import { banda } from '../../data/banda.js'
+import { numero } from '../../data/secoes.js'
+import CabecalhoSecao from '../../components/CabecalhoSecao/CabecalhoSecao.jsx'
 import './Repertorio.css'
 
 const { texto, pedido, artistas } = banda.repertorio
@@ -8,8 +10,7 @@ export default function Repertorio() {
     <section id="repertorio" className="secao secao--alt">
       <div className="container repertorio">
         <div>
-          <span className="secao__rotulo">O que tocamos</span>
-          <h2 className="secao__titulo">O repertório</h2>
+          <CabecalhoSecao numero={numero.repertorio} rotulo="O que tocamos" titulo="O repertório" />
           <p className="texto">{texto}</p>
           <p className="texto">
             <strong>{pedido.pergunta}</strong> {pedido.resposta}

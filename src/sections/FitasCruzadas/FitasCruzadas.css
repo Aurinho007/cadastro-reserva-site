@@ -1,0 +1,101 @@
+/* Área das fitas: corta o que passa das laterais (senão o celular "arrasta" para o lado) */
+.fitas {
+  position: relative;
+  z-index: 3;
+  height: 150px;
+  margin: -2.5rem 0 -1rem;
+  overflow: hidden;
+}
+
+.fita {
+  position: absolute;
+  left: -10%;
+  width: 120%;
+  top: 50%;
+  border-block: var(--borda-grossa) solid var(--cor-fundo);
+  padding: 0.35rem 0;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Celular: ângulo maior para o X aparecer bem numa tela estreita */
+.fita--papel {
+  background: var(--cor-papel);
+  color: var(--cor-papel-texto);
+  transform: translateY(-50%) rotate(9deg);
+}
+
+.fita--roxa {
+  background: var(--cor-destaque);
+  color: var(--cor-sobre-destaque);
+  transform: translateY(-50%) rotate(-7deg);
+}
+
+.fita__trilho {
+  display: flex;
+  width: max-content;
+  animation: fita-rolagem 30s linear infinite;
+}
+
+/* A fita de papel corre no sentido contrário */
+.fita--papel .fita__trilho {
+  animation-direction: reverse;
+  animation-duration: 36s;
+}
+
+.fita__item {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--fonte-titulo);
+  font-size: 1.15rem;
+  line-height: 1.3;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.fita__separador {
+  font-size: 0.7em;
+  margin: 0 0.9rem;
+}
+
+.fita--papel .fita__separador {
+  color: var(--cor-destaque-escuro);
+}
+
+@keyframes fita-rolagem {
+  to {
+    transform: translateX(-33.333%);
+  }
+}
+
+@media (min-width: 720px) {
+  .fitas {
+    height: 190px;
+  }
+
+  .fita--papel {
+    transform: translateY(-50%) rotate(5deg);
+  }
+
+  .fita--roxa {
+    transform: translateY(-50%) rotate(-4deg);
+  }
+
+  .fita__item {
+    font-size: 1.5rem;
+  }
+
+  .fita__separador {
+    margin: 0 1.2rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .fita--papel {
+    transform: translateY(-50%) rotate(3deg);
+  }
+
+  .fita--roxa {
+    transform: translateY(-50%) rotate(-2.5deg);
+  }
+}

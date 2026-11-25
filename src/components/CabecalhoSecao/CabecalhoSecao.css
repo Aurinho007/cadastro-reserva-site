@@ -1,0 +1,45 @@
+.cabecalho-secao {
+  position: relative;
+  padding-top: 2.2rem;
+}
+
+/* Número grande contornado, atrás do título */
+.cabecalho-secao__numero {
+  position: absolute;
+  top: -0.5rem;
+  right: 0;
+  font-family: var(--fonte-titulo);
+  font-size: 7rem;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--cor-destaque);
+  opacity: 0.35;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Barra roxa antes do rótulo */
+.cabecalho-secao .secao__rotulo {
+  display: block;
+  margin-bottom: var(--espaco-sm);
+  padding-left: 0.9rem;
+  border-left: 4px solid var(--cor-destaque);
+}
+
+.cabecalho-secao h2 {
+  position: relative;
+}
+
+@media (min-width: 720px) {
+  .cabecalho-secao__numero {
+    font-size: 11rem;
+    top: -1.5rem;
+  }
+}
+
+@media (min-width: 960px) {
+  .cabecalho-secao__numero {
+    font-size: 14rem;
+    -webkit-text-stroke-width: 3px;
+  }
+}

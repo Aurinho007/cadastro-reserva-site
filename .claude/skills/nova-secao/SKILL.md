@@ -17,8 +17,7 @@ O site é uma página única com seções empilhadas em `src/App.jsx` e navegaç
    ```jsx
    <section id="galeria" className="secao">
      <div className="container">
-       <span className="secao__rotulo">Frase curta</span>
-       <h2 className="secao__titulo">Nossa galeria</h2>
+       <CabecalhoSecao numero={numero.galeria} rotulo="Frase curta" titulo="Nossa galeria" />
        {/* conteúdo */}
      </div>
    </section>
@@ -31,7 +30,7 @@ O site é uma página única com seções empilhadas em `src/App.jsx` e navegaç
 4. **Imagens**: `src/assets/images/`, sempre com `width`, `height`, `loading="lazy"` e `decoding="async"` (exceto no topo da página), e `alt` descritivo.
 5. **Estado vazio**: se a seção depende de uma lista que pode ficar vazia, retorne `null` (como a Agenda) ou mostre `<p className="vazio">…</p>`.
 6. **Registre em `src/App.jsx`** na posição certa dentro de `<main>`.
-7. **Adicione ao menu** no array `itensMenu` de `src/components/Header/Header.jsx`, na mesma ordem da página.
+7. **Adicione a seção em `src/data/secoes.js`** (`{ id, menu }`), na mesma ordem da página. Isso coloca o link no menu e gera o número da seção (`numero.galeria`) usado no `CabecalhoSecao`.
 8. Se fizer sentido, termine a seção com uma ação: `<Botao href={links.whatsapp} icone="whatsapp">…</Botao>`.
 
 9. **Desenhe primeiro para o celular (320px)**: uma coluna, na ordem de leitura do celular (título → imagem → texto → ação). Depois adicione `@media (min-width: 480px | 720px | 960px | 1200px)` em ordem crescente, só quando o conteúdo precisar. Listas longas de cards no celular podem virar carrossel com `scroll-snap` (veja `Integrantes`).
