@@ -9,7 +9,13 @@ export default function Integrantes() {
         <h2 className="secao__titulo">
           <span>Integrantes</span>
         </h2>
+        <p className="integrantes__dica" aria-hidden="true">
+          Deslize para o lado →
+        </p>
+      </div>
 
+      {/* Celular: carrossel com rolagem lateral. 720px+: grade com os 5 lado a lado. */}
+      <div className="integrantes__janela" tabIndex={0} role="region" aria-label="Integrantes da banda">
         <ul className="integrantes">
           {banda.integrantes.map((pessoa) => (
             <li key={pessoa.nome} className="integrante">

@@ -1,3 +1,4 @@
+/* ---------- Celular (base): data + local em cima, botão de ingressos embaixo ---------- */
 .agenda__lista {
   list-style: none;
   display: grid;
@@ -6,35 +7,41 @@
 
 .agenda__item {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: var(--espaco-lg);
-  padding: var(--espaco-md) var(--espaco-lg);
+  gap: var(--espaco-md);
+  padding: var(--espaco-md);
   background: var(--cor-superficie);
   border-left: 4px solid var(--cor-destaque);
   border-radius: var(--raio);
+}
+
+.agenda__item .botao {
+  width: 100%;
 }
 
 .agenda__data {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 56px;
+  min-width: 52px;
   font-family: var(--fonte-titulo);
   line-height: 1;
 }
 
 .agenda__dia {
-  font-size: 2.5rem;
+  font-size: 2.25rem;
 }
 
 .agenda__mes {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: var(--cor-destaque);
   text-transform: uppercase;
 }
 
 .agenda__info {
   flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
 }
@@ -44,10 +51,23 @@
   font-size: 0.9rem;
 }
 
-@media (max-width: 560px) {
+/* ---------- 720px+: tudo em uma linha ---------- */
+@media (min-width: 720px) {
   .agenda__item {
-    flex-wrap: wrap;
-    gap: var(--espaco-md);
-    padding: var(--espaco-md);
+    flex-wrap: nowrap;
+    gap: var(--espaco-lg);
+    padding: var(--espaco-md) var(--espaco-lg);
+  }
+
+  .agenda__item .botao {
+    width: auto;
+  }
+
+  .agenda__dia {
+    font-size: 2.5rem;
+  }
+
+  .agenda__mes {
+    font-size: 1.1rem;
   }
 }

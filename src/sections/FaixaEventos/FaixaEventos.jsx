@@ -7,19 +7,24 @@ import './FaixaEventos.css'
 const itens = [...banda.eventos, ...banda.eventos]
 
 export default function FaixaEventos() {
+  // A moldura corta o que passa das laterais (sem ela o celular "arrasta" a página para o lado)
   return (
-    <div className="faixa">
-      <Rasgo lado="topo" />
-      <p className="visualmente-oculto">Tocamos em: {banda.eventos.join(', ')}.</p>
-      <div className="faixa__trilho" aria-hidden="true">
-        {itens.map((evento, i) => (
-          <span key={i} className="faixa__item">
-            {evento}
-            <span className="faixa__separador">✦</span>
-          </span>
-        ))}
+    <div className="faixa-moldura">
+      <div className="faixa">
+        <Rasgo lado="topo" />
+        <p className="visualmente-oculto">Tocamos em: {banda.eventos.join(', ')}.</p>
+        <div className="faixa__janela" aria-hidden="true">
+          <div className="faixa__trilho">
+            {itens.map((evento, i) => (
+              <span key={i} className="faixa__item">
+                {evento}
+                <span className="faixa__separador">✦</span>
+              </span>
+            ))}
+          </div>
+        </div>
+        <Rasgo lado="base" />
       </div>
-      <Rasgo lado="base" />
     </div>
   )
 }

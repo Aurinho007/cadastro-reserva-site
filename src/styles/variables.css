@@ -1,5 +1,9 @@
 /* Identidade visual da Cadastro Reserva — preto e roxo (#be73d7).
-   Altere cores e fontes aqui: o site inteiro usa estas variáveis. */
+   Altere cores e fontes aqui: o site inteiro usa estas variáveis.
+
+   MOBILE FIRST: os valores base são para celular (a partir de 320px).
+   Telas maiores só ajustam via min-width, sempre nesta ordem:
+   480px → 720px → 960px → 1200px */
 :root {
   /* Cores */
   --cor-fundo: #0b0b0b;
@@ -26,15 +30,34 @@
   --espaco-sm: 0.5rem;
   --espaco-md: 1rem;
   --espaco-lg: 2rem;
-  --espaco-xl: 4rem;
-  --espaco-xxl: 6rem;
+  --espaco-xl: 3rem;
+  --espaco-xxl: 4rem;
 
-  /* Layout */
+  /* Layout (celular) */
   --largura-max: 1160px;
-  --altura-header: 72px;
+  --margem-lateral: 1.25rem;
+  --altura-header: 64px;
+  --altura-barra-acao: 76px; /* barra fixa "Contratar" no rodapé do celular */
   --raio: 6px;
+  --alvo-toque: 48px;
 
   /* Movimento */
   --curva: cubic-bezier(0.16, 1, 0.3, 1);
   --transicao: 0.25s var(--curva);
+}
+
+@media (min-width: 720px) {
+  :root {
+    --margem-lateral: 2rem;
+    --espaco-xl: 4rem;
+    --espaco-xxl: 5rem;
+  }
+}
+
+@media (min-width: 960px) {
+  :root {
+    --altura-header: 72px;
+    --altura-barra-acao: 0px; /* no computador a ação vira um botão redondo flutuante */
+    --espaco-xxl: 6rem;
+  }
 }

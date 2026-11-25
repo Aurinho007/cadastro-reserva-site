@@ -1,10 +1,11 @@
+/* Celular: alvo de toque grande (48px+). Hover só em aparelhos com mouse. */
 .botao {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
-  min-height: 48px;
-  padding: 0.8rem 1.6rem;
+  min-height: var(--alvo-toque);
+  padding: 0.8rem 1.4rem;
   border: 2px solid var(--cor-destaque);
   border-radius: var(--raio);
   font-family: var(--fonte-texto);
@@ -12,7 +13,9 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
+  text-align: center;
   cursor: pointer;
+  touch-action: manipulation;
   transition:
     background var(--transicao),
     color var(--transicao),
@@ -21,12 +24,8 @@
     box-shadow var(--transicao);
 }
 
-.botao:hover {
-  transform: translateY(-2px);
-}
-
 .botao:active {
-  transform: translateY(0);
+  transform: scale(0.97);
 }
 
 /* Principal: roxo com texto preto (branco no roxo não tem contraste suficiente) */
@@ -35,25 +34,41 @@
   color: var(--cor-sobre-destaque);
 }
 
-.botao--cheio:hover {
-  background: var(--cor-destaque-claro);
-  border-color: var(--cor-destaque-claro);
-  box-shadow: 0 10px 30px -10px var(--cor-destaque);
-}
-
 .botao--contorno {
   background: transparent;
   color: var(--cor-texto);
   border-color: var(--cor-texto);
 }
 
-.botao--contorno:hover {
-  border-color: var(--cor-destaque);
-  color: var(--cor-destaque);
+.botao--grande {
+  min-height: 56px;
+  padding: 1rem 1.1rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
 }
 
-.botao--grande {
-  min-height: 60px;
-  padding: 1rem 2.2rem;
-  font-size: 1rem;
+@media (hover: hover) {
+  .botao:hover {
+    transform: translateY(-2px);
+  }
+
+  .botao--cheio:hover {
+    background: var(--cor-destaque-claro);
+    border-color: var(--cor-destaque-claro);
+    box-shadow: 0 10px 30px -10px var(--cor-destaque);
+  }
+
+  .botao--contorno:hover {
+    border-color: var(--cor-destaque);
+    color: var(--cor-destaque);
+  }
+}
+
+@media (min-width: 720px) {
+  .botao--grande {
+    min-height: 60px;
+    padding: 1rem 2.2rem;
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+  }
 }

@@ -1,6 +1,6 @@
 import Header from './components/Header/Header.jsx'
 import Footer from './components/Footer/Footer.jsx'
-import WhatsAppFlutuante from './components/WhatsAppFlutuante/WhatsAppFlutuante.jsx'
+import AcaoContratar from './components/AcaoContratar/AcaoContratar.jsx'
 import Hero from './sections/Hero/Hero.jsx'
 import FaixaEventos from './sections/FaixaEventos/FaixaEventos.jsx'
 import Sobre from './sections/Sobre/Sobre.jsx'
@@ -25,7 +25,7 @@ export default function App() {
         <Contato />
       </main>
       <Footer />
-      <WhatsAppFlutuante />
+      <AcaoContratar />
     </>
   )
 }

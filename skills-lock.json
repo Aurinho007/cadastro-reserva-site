@@ -8,6 +8,13 @@
       "skillPath": "create-website/SKILL.md",
       "computedHash": "f165bf4375167da877f0a8934c07607f78919f14d664e4890059104bb6f589dc"
     },
+    "mobile-first-website-design": {
+      "source": "srinitude/skills",
+      "commit": "21a330871afc02d0109702bd24a801cfb567ceba",
+      "sourceType": "github",
+      "skillPath": "skills/mobile-first-website-design/SKILL.md",
+      "computedHash": "e06536408ab5c26535b0994678d0843b2a557125056c88eb25f03f01c9f47271"
+    },
     "vercel-react-best-practices": {
       "source": "vercel-labs/agent-skills",
       "commit": "5a37a6329fbad3666c3207392a6a7c0110e92efb",

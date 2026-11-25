@@ -1,10 +1,11 @@
+/* ---------- Celular (base): texto e botões, foto embaixo encostada na borda direita ---------- */
 .contato {
   overflow: hidden;
-  min-height: 640px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  padding-bottom: 0;
   background:
-    radial-gradient(ellipse 45% 70% at 85% 50%, rgba(190, 115, 215, 0.2), transparent 70%),
+    radial-gradient(ellipse 80% 40% at 80% 85%, rgba(190, 115, 215, 0.2), transparent 70%),
     var(--cor-fundo);
 }
 
@@ -14,12 +15,13 @@
 }
 
 .contato__conteudo > * {
-  max-width: 560px;
+  max-width: 600px;
 }
 
 .contato__titulo {
-  font-size: clamp(2.6rem, 6vw, 4.6rem);
-  margin-bottom: var(--espaco-lg);
+  font-size: clamp(2.2rem, 10vw, 3rem);
+  margin-bottom: var(--espaco-md);
+  text-wrap: balance;
 }
 
 .contato__titulo span {
@@ -27,40 +29,54 @@
 }
 
 .contato__acoes {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--espaco-md);
+  display: grid;
+  gap: 0.75rem;
   margin: var(--espaco-lg) 0;
 }
 
 /* Foto do release: a moldura rasgada é cortada na borda direita, então ela encosta na borda da tela */
 .contato__foto {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: min(42vw, 560px);
-  -webkit-mask-image: radial-gradient(ellipse 52% 42% at 53% 48%, #000 94%, transparent 100%);
-  mask-image: radial-gradient(ellipse 52% 42% at 53% 48%, #000 94%, transparent 100%);
+  width: min(80vw, 420px);
+  margin: var(--espaco-md) 0 0 auto;
+  -webkit-mask-image: radial-gradient(ellipse 55% 46% at 52% 48%, #000 95%, transparent 100%);
+  mask-image: radial-gradient(ellipse 55% 46% at 52% 48%, #000 95%, transparent 100%);
 }
 
-@media (max-width: 960px) {
+/* ---------- 480px+: botões lado a lado ---------- */
+@media (min-width: 480px) {
+  .contato__acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--espaco-md);
+  }
+}
+
+/* ---------- 720px+ ---------- */
+@media (min-width: 720px) {
+  .contato__titulo {
+    font-size: clamp(3rem, 6vw, 4.6rem);
+    margin-bottom: var(--espaco-lg);
+  }
+}
+
+/* ---------- 960px+: foto ao lado, encostada na borda direita da tela ---------- */
+@media (min-width: 960px) {
   .contato {
-    flex-direction: column;
-    align-items: stretch;
-    padding-bottom: 0;
+    min-height: 640px;
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: var(--espaco-xxl);
+    background:
+      radial-gradient(ellipse 45% 70% at 85% 50%, rgba(190, 115, 215, 0.2), transparent 70%),
+      var(--cor-fundo);
   }
 
   .contato__foto {
-    position: static;
-    transform: none;
-    width: min(85vw, 440px);
-    margin: var(--espaco-lg) 0 0 auto;
-  }
-}
-
-@media (max-width: 480px) {
-  .contato__acoes .botao {
-    width: 100%;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: min(42vw, 560px);
+    margin: 0;
   }
 }

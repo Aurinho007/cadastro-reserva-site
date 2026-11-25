@@ -1,12 +1,11 @@
+/* ---------- Celular (base): texto e depois etiquetas ---------- */
 .repertorio {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  align-items: center;
-  gap: var(--espaco-xl);
+  gap: var(--espaco-lg);
 }
 
 .repertorio__intro {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.18em;
@@ -19,15 +18,15 @@
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.7rem;
+  gap: 0.55rem;
 }
 
 .repertorio__artistas li {
   font-family: var(--fonte-titulo);
-  font-size: clamp(1.3rem, 2.6vw, 1.9rem);
+  font-size: 1.2rem;
   text-transform: uppercase;
   line-height: 1;
-  padding: 0.5rem 0.8rem 0.45rem;
+  padding: 0.45rem 0.65rem 0.4rem;
   background: var(--cor-papel);
   color: var(--cor-papel-texto);
   transform: rotate(-1.5deg);
@@ -48,23 +47,49 @@
   transform: rotate(-0.6deg);
 }
 
-.repertorio__artistas li:hover {
-  transform: rotate(0) scale(1.06);
-}
-
 .repertorio__artistas .repertorio__mais {
   font-family: var(--fonte-texto);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 600;
   text-transform: none;
+  line-height: 1.3;
   background: transparent;
   color: var(--cor-texto-suave);
   outline: 1px dashed var(--cor-borda);
   transform: none;
 }
 
-@media (max-width: 860px) {
+/* ---------- 720px+ ---------- */
+@media (min-width: 720px) {
+  .repertorio__artistas {
+    gap: 0.7rem;
+  }
+
+  .repertorio__artistas li {
+    font-size: 1.55rem;
+    padding: 0.5rem 0.8rem 0.45rem;
+  }
+
+  .repertorio__artistas .repertorio__mais {
+    font-size: 0.9rem;
+  }
+}
+
+/* ---------- 960px+: duas colunas ---------- */
+@media (min-width: 960px) {
   .repertorio {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: var(--espaco-xl);
+  }
+
+  .repertorio__artistas li {
+    font-size: 1.9rem;
+  }
+}
+
+@media (hover: hover) {
+  .repertorio__artistas li:hover {
+    transform: rotate(0) scale(1.06);
   }
 }

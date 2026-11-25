@@ -24,7 +24,7 @@ export const banda = {
       'Pitty',
       'Red Hot Chili Peppers',
       'Pink Floyd',
-      'Elvis Presley',
+      'The Cranberries',
       'Mamonas Assassinas',
       'Pearl Jam',
       'Arctic Monkeys',

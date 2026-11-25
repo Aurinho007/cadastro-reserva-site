@@ -1,3 +1,4 @@
+/* MOBILE FIRST: estilos base = celular. Ajustes só com min-width, em ordem crescente. */
 *,
 *::before,
 *::after {
@@ -9,16 +10,25 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--altura-header);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Menu do celular aberto: trava a rolagem da página por trás */
+html.menu-aberto {
+  overflow: hidden;
 }
 
 body {
   background: var(--cor-fundo);
   color: var(--cor-texto);
   font-family: var(--fonte-texto);
-  font-size: 1.0625rem;
-  line-height: 1.65;
+  font-size: 1rem;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* Granulado de papel por cima de tudo, como no release */
@@ -51,6 +61,7 @@ h3 {
   text-transform: uppercase;
   letter-spacing: 0.01em;
   line-height: 1.05;
+  overflow-wrap: break-word;
 }
 
 :focus-visible {
@@ -68,7 +79,7 @@ h3 {
   width: 100%;
   max-width: var(--largura-max);
   margin: 0 auto;
-  padding: 0 var(--espaco-md);
+  padding: 0 var(--margem-lateral);
 }
 
 .secao {
@@ -82,7 +93,7 @@ h3 {
 
 .secao__rotulo {
   display: inline-block;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.18em;
@@ -91,8 +102,8 @@ h3 {
 }
 
 .secao__titulo {
-  font-size: clamp(2.75rem, 7vw, 4.5rem);
-  margin-bottom: var(--espaco-lg);
+  font-size: clamp(2.5rem, 12vw, 3.25rem);
+  margin-bottom: var(--espaco-md);
 }
 
 .secao__titulo span {
@@ -125,9 +136,19 @@ h3 {
   white-space: nowrap;
 }
 
-@media (max-width: 720px) {
-  .secao {
-    padding: var(--espaco-xl) 0;
+@media (min-width: 720px) {
+  body {
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+
+  .secao__rotulo {
+    font-size: 0.8rem;
+  }
+
+  .secao__titulo {
+    font-size: clamp(3rem, 7vw, 4.5rem);
+    margin-bottom: var(--espaco-lg);
   }
 }
 

@@ -1,15 +1,33 @@
+/* ---------- Celular (base): título → foto → texto ---------- */
 .sobre {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
-  align-items: center;
-  gap: var(--espaco-xl);
+  grid-template-areas:
+    'cabecalho'
+    'foto'
+    'corpo';
+  gap: var(--espaco-md);
+}
+
+.sobre__cabecalho {
+  grid-area: cabecalho;
+}
+
+.sobre__cabecalho .secao__titulo {
+  margin-bottom: 0;
+}
+
+.sobre__foto {
+  grid-area: foto;
+}
+
+.sobre__corpo {
+  grid-area: corpo;
 }
 
 /* A foto já vem com a moldura de papel rasgado do release; a máscara some com os cantos */
 .sobre__foto img {
-  width: 100%;
-  max-width: 520px;
-  margin: 0 auto;
+  width: min(280px, 80vw);
+  margin: var(--espaco-sm) auto var(--espaco-md);
   -webkit-mask-image: radial-gradient(circle closest-side, #000 97%, transparent 100%);
   mask-image: radial-gradient(circle closest-side, #000 97%, transparent 100%);
   transform: rotate(-3deg);
@@ -23,8 +41,8 @@
 .energia__barras {
   display: flex;
   align-items: flex-end;
-  gap: 5px;
-  height: 90px;
+  gap: 4px;
+  height: 64px;
 }
 
 .energia__barras span {
@@ -47,24 +65,61 @@
 .energia__legenda {
   display: flex;
   justify-content: space-between;
+  gap: var(--espaco-md);
   margin-top: var(--espaco-sm);
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   color: var(--cor-texto-suave);
 }
 
 .energia__legenda span:last-child {
   color: var(--cor-destaque);
+  text-align: right;
 }
 
-@media (max-width: 860px) {
+/* ---------- 720px+ ---------- */
+@media (min-width: 720px) {
+  .sobre__foto img {
+    width: 380px;
+  }
+
+  .energia__barras {
+    height: 90px;
+    gap: 5px;
+  }
+
+  .energia__legenda {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+  }
+}
+
+/* ---------- 960px+: foto à esquerda, título e texto à direita ---------- */
+@media (min-width: 960px) {
   .sobre {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      'foto cabecalho'
+      'foto corpo';
+    column-gap: var(--espaco-xl);
+    row-gap: var(--espaco-lg);
+    align-items: center;
+  }
+
+  .sobre__cabecalho {
+    align-self: end;
+  }
+
+  .sobre__corpo {
+    align-self: start;
   }
 
   .sobre__foto img {
-    max-width: 380px;
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
   }
 }

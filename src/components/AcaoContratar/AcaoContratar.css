@@ -1,0 +1,116 @@
+/* ---------- Celular (base): barra fixa no rodapé da tela ---------- */
+.acao-contratar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 90;
+  display: flex;
+  gap: 0.6rem;
+  padding: 0.7rem var(--margem-lateral) calc(0.7rem + env(safe-area-inset-bottom));
+  background: rgba(11, 11, 11, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid var(--cor-borda);
+  transform: translateY(110%);
+  visibility: hidden;
+  transition:
+    transform 0.4s var(--curva),
+    visibility 0s linear 0.4s;
+}
+
+.acao-contratar--visivel {
+  transform: none;
+  visibility: visible;
+  transition: transform 0.4s var(--curva);
+}
+
+.acao-contratar__whatsapp,
+.acao-contratar__instagram {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  border-radius: var(--raio);
+  touch-action: manipulation;
+  transition: background var(--transicao), transform var(--transicao);
+}
+
+.acao-contratar__whatsapp {
+  flex: 1;
+  gap: 0.6rem;
+  background: var(--cor-destaque);
+  color: var(--cor-sobre-destaque);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.acao-contratar__instagram {
+  width: 52px;
+  flex-shrink: 0;
+  border: 2px solid var(--cor-borda);
+  color: var(--cor-texto);
+}
+
+.acao-contratar__whatsapp:active,
+.acao-contratar__instagram:active {
+  transform: scale(0.97);
+}
+
+/* ---------- Computador (960px+): botão redondo flutuante ---------- */
+@media (min-width: 960px) {
+  .acao-contratar {
+    left: auto;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    padding: 0;
+    background: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: none;
+    transform: translateY(20px) scale(0.8);
+    opacity: 0;
+    transition:
+      transform 0.4s var(--curva),
+      opacity 0.4s var(--curva),
+      visibility 0s linear 0.4s;
+  }
+
+  .acao-contratar--visivel {
+    transform: none;
+    opacity: 1;
+    transition:
+      transform 0.4s var(--curva),
+      opacity 0.4s var(--curva);
+  }
+
+  .acao-contratar__whatsapp {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    box-shadow:
+      0 2px 6px rgba(0, 0, 0, 0.5),
+      0 12px 32px -8px var(--cor-destaque);
+  }
+
+  /* No computador o Instagram já está no menu do topo */
+  .acao-contratar__texto,
+  .acao-contratar__instagram {
+    display: none;
+  }
+}
+
+@media (hover: hover) {
+  .acao-contratar__whatsapp:hover {
+    background: var(--cor-destaque-claro);
+  }
+}
+
+@media (hover: hover) and (min-width: 960px) {
+  .acao-contratar__whatsapp:hover {
+    transform: scale(1.08);
+  }
+}

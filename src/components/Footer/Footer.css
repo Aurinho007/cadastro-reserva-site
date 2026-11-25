@@ -1,13 +1,14 @@
+/* ---------- Celular (base): uma coluna.
+   Espaço extra embaixo para a barra fixa "Contratar" não cobrir o rodapé. ---------- */
 .footer {
   border-top: 1px solid var(--cor-borda);
-  padding: var(--espaco-xl) 0 calc(var(--espaco-xl) + 40px);
+  padding: var(--espaco-xl) 0
+    calc(var(--espaco-lg) + var(--altura-barra-acao) + env(safe-area-inset-bottom));
   font-size: 0.9rem;
 }
 
 .footer__conteudo {
   display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
   gap: var(--espaco-lg);
 }
 
@@ -16,24 +17,44 @@
   align-items: center;
   gap: 0.75rem;
   font-family: var(--fonte-titulo);
-  font-size: 2rem;
+  font-size: 1.75rem;
   text-transform: uppercase;
 }
 
 .footer__marca img {
-  width: 64px;
+  width: 56px;
 }
 
 .footer__copy {
-  grid-column: 1 / -1;
   color: var(--cor-texto-suave);
   font-size: 0.8rem;
   padding-top: var(--espaco-lg);
   border-top: 1px solid var(--cor-borda);
 }
 
-@media (max-width: 640px) {
+/* ---------- 720px+: marca à esquerda, contatos à direita ---------- */
+@media (min-width: 720px) {
   .footer__conteudo {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+  }
+
+  .footer__marca {
+    font-size: 2rem;
+  }
+
+  .footer__marca img {
+    width: 64px;
+  }
+
+  .footer__copy {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ---------- 960px+: espaço para o botão redondo flutuante ---------- */
+@media (min-width: 960px) {
+  .footer {
+    padding-bottom: calc(var(--espaco-xl) + 40px);
   }
 }
